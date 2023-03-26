@@ -4,7 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import keras
 import segmentation_models as sm
-
+import os
+from dotenv import load_dotenv
 
 def onehot_to_rgb(onehot):
     color_dict = { 
@@ -37,7 +38,7 @@ def predict_image(model, img):
     return mask_padded[0:img.shape[0], 0:img.shape[1], :]
 
 def function1(img):
-    model = keras.models.load_model('D:\\Academic projects\\Major project\\Code\\Unet\\New_Models\\inceptionv3.h5',
+    model = keras.models.load_model(os.getenv("model_path"),
                                     custom_objects={'focal_loss_plus_jaccard_loss': sm.losses.categorical_focal_jaccard_loss,
                                                     'iou_score': sm.metrics.IOUScore, 
                                                     'threshold': 0.5, 'f1-score':sm.metrics.FScore})
