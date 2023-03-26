@@ -25,8 +25,6 @@ The project requires the following dependencies:
 
 - models: This folder contains pre-trained models for segmentation.
 
-- data: This folder contains the dataset for training and testing.
-
 - README.md: This file contains information about the project.
 
 # Usage
